@@ -75,7 +75,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'newsletter.wsgi.application'
 
-
+DOMAIN_NAME = 'http://127.0.0.1:8000/'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -160,3 +160,4 @@ if CACHE_ENABLED:
             "LOCATION": os.getenv('CACHE_LOCATION'),
         }
     }
+

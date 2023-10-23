@@ -14,9 +14,9 @@ class UserRegisterForm(UserCreationForm):
 
     def save(self, commit=True):
         user = super(UserRegisterForm, self).save(commit=True)
-        expiration = now() + timedelta(hours=48)
-        record = EmailVerification.objects.create(code=uuid.uuid4(), user=user, expiration=expiration)
-        record.send_verification_email()
+        expiration_date = now() + timedelta(hours=48)
+        record = EmailVerification.objects.create(code=uuid.uuid4(), user=user, expiration_date=expiration_date)
+        record.send_verification()
         return user
 
 

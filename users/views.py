@@ -14,13 +14,13 @@ class RegisterView(CreateView):
     model = User
     form_class = UserRegisterForm
     template_name = 'users/register.html'
-    success_url = reverse_lazy("user:login")
+    success_url = reverse_lazy("users:login")
 
 
 class ProfileView(UpdateView):
     model = User
     form_class = UserProfileForm
-    success_url = reverse_lazy("user:profile")
+    success_url = reverse_lazy("users:profile")
 
     def get_object(self, queryset=None):
         return self.request.user
@@ -44,7 +44,7 @@ class EmailVerificationView(TemplateView):
 class PasswordRecoveryView(FormView):
     template_name = 'users/password_recovery.html'
     form_class = PasswordRecoveryForm
-    success_url = reverse_lazy('user:login')
+    success_url = reverse_lazy('users:login')
 
     def form_valid(self, form):
         email = form.cleaned_data['email']
